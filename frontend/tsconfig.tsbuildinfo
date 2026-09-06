@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/components/anomalybanner.tsx","./src/components/drilldowntable.tsx","./src/components/forecastcard.tsx","./src/components/funnelchart.tsx","./src/components/kpicard.tsx","./src/components/trendchart.tsx","./src/lib/api.ts"],"version":"5.9.3"}
