@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Data (재생성 가능 — 리포에 담지 않는다)
+*.db
+*.sqlite3
+
+# Env / 로컬 설정
+.env
+.env.local
+
+# OS / 에디터
+.DS_Store
+*.swp
+.idea/
+.vscode/
