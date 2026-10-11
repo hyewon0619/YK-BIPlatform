@@ -9,7 +9,7 @@ export default function TrendChart({ history, current }: { history: Funnel[]; cu
     date: d.date.slice(5),
     콜: d.calls,
     예약: d.reservations,
-    계약: d.contracts,
+    선임: d.contracts,
   }));
 
   return (
@@ -29,7 +29,7 @@ export default function TrendChart({ history, current }: { history: Funnel[]; cu
             />
             <Line type="monotone" dataKey="콜" stroke="#334155" strokeWidth={2} dot={false} />
             <Line type="monotone" dataKey="예약" stroke="#4f46e5" strokeWidth={2} dot={false} />
-            <Line type="monotone" dataKey="계약" stroke="#10b981" strokeWidth={2} dot={false} />
+            <Line type="monotone" dataKey="선임" stroke="#10b981" strokeWidth={2} dot={false} />
           </LineChart>
         </ResponsiveContainer>
       </div>
