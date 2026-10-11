@@ -1,4 +1,4 @@
-"""차원별 드릴다운 — 지점 / 권역 / 채널 / 상담유형 / 이탈사유.
+"""차원별 드릴다운 — 지점 / 권역 / 유입경로 / 사건 분류 / 상담유형 / 이탈사유.
 
 퍼널 숫자가 떨어졌을 때 "어디가 떨어졌는지"를 한 번에 보기 위한 것.
 차원 이름은 화이트리스트로만 받는다 (사용자 입력을 SQL 에 넣지 않는다).
@@ -14,8 +14,9 @@ from ..db import query
 DIMENSIONS: dict[str, tuple[str, str]] = {
     "branch": ("b.name", "지점"),
     "region": ("b.region", "권역"),
-    "channel": ("ch.name", "유입 채널"),
-    "category": ("cat.name", "상담 유형"),
+    "channel": ("ch.name", "유입경로"),
+    "category": ("t.major", "사건 분류"),
+    "consult_type": ("c.consult_type", "상담유형"),
 }
 
 
@@ -38,7 +39,7 @@ def by_dimension(dimension: str, start: date, end: date) -> dict:
         FROM consultation c
         JOIN branch   b   ON b.id   = c.branch_id
         JOIN channel  ch  ON ch.id  = c.channel_id
-        JOIN category cat ON cat.id = c.category_id
+        JOIN case_type t  ON t.id   = c.case_type_id
         WHERE c.call_date BETWEEN :start AND :end
         GROUP BY {column}
         ORDER BY revenue DESC

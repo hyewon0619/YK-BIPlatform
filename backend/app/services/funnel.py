@@ -1,4 +1,4 @@
-"""퍼널 지표 — 콜 -> 예약 -> 방문 -> 계약.
+"""퍼널 지표 — 콜 -> 예약 -> 방문 -> 선임.
 
 지표 정의(전부 이 파일 안에서 끝난다):
   콜     call_date 가 그 날인 상담 건수
@@ -26,7 +26,7 @@ _FUNNEL_SELECT = """
         SUM(CASE WHEN visit_date    IS NOT NULL THEN 1 END) AS visits,
         SUM(CASE WHEN contract_date IS NOT NULL THEN 1 END) AS contracts,
         COALESCE(SUM(contract_amount), 0)                   AS revenue,
-        COALESCE(SUM(success_fee), 0)                       AS success_fee
+        COALESCE(SUM(sf_expected), 0)                       AS success_fee
     FROM consultation
     WHERE call_date BETWEEN :start AND :end
 """
@@ -48,7 +48,7 @@ def _shape(row: dict) -> dict:
         "visits": visits,
         "contracts": contracts,
         "revenue": revenue,
-        "success_fee": row.get("success_fee") or 0,
+        "success_fee": row.get("success_fee") or 0,  # 최대 예상 성공보수 합
         "reservation_rate": _rate(reservations, calls),
         "visit_rate": _rate(visits, reservations),
         "contract_rate": _rate(contracts, visits),

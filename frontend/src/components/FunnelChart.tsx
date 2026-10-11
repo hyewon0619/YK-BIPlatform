@@ -4,7 +4,7 @@ const STAGES = [
   { key: "calls", label: "콜 인입", color: "bg-slate-700" },
   { key: "reservations", label: "예약", color: "bg-indigo-600" },
   { key: "visits", label: "방문", color: "bg-sky-500" },
-  { key: "contracts", label: "계약", color: "bg-emerald-500" },
+  { key: "contracts", label: "선임", color: "bg-emerald-500" },
 ] as const;
 
 /** 단계별 잔존 수와 앞 단계 대비 전환율을 같이 보여준다. */

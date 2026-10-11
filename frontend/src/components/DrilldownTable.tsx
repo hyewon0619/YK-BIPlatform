@@ -4,8 +4,9 @@ import { won, type DrilldownRow } from "../lib/api";
 const DIMENSIONS = [
   { key: "branch", label: "지점" },
   { key: "region", label: "권역" },
-  { key: "channel", label: "유입 채널" },
-  { key: "category", label: "상담 유형" },
+  { key: "channel", label: "유입경로" },
+  { key: "category", label: "사건 분류" },
+  { key: "consult_type", label: "상담유형" },
 ];
 
 type Props = {

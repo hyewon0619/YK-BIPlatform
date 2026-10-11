@@ -1,0 +1,28 @@
+{
+  "_comment": "사이드바 메뉴 정의. 서버가 이 파일을 직접 읽어 권한 카탈로그를 만든다. 메뉴를 추가할 때 등록 절차가 따로 없다.",
+  "groups": [
+    {
+      "key": "management",
+      "label": "경영 현황",
+      "items": [
+        { "key": "monitoring", "label": "경영 모니터링" },
+        { "key": "funnel", "label": "상담 퍼널" }
+      ]
+    },
+    {
+      "key": "revenue",
+      "label": "매출",
+      "items": [
+        { "key": "forecast", "label": "당월 매출 예측" },
+        { "key": "success_fee", "label": "성공보수 추정" }
+      ]
+    },
+    {
+      "key": "sales",
+      "label": "영업",
+      "items": [
+        { "key": "recommend", "label": "별건 추천" }
+      ]
+    }
+  ]
+}
